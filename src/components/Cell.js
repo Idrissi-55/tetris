@@ -6,8 +6,9 @@ const Cell = ({ type }) => (
     <StyledCell
         type={type}
         color={TETROMINOS[type].color}
-    />
-
+    >
+    {console.log('rerender')}
+    </StyledCell>
 );
-
-export default Cell;
+//Render only the cells that change with the tetromino
+export default React.memo(Cell);
