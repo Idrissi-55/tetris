@@ -4,7 +4,7 @@
 
 ## **La version en ligne est disponible, HAVE FUN !** :star_struck:
 
-Lien
+**https://simplified-tetris.netlify.app/**
 
 ## **Ce jeu est basé sur 4 custom hooks :**
 
