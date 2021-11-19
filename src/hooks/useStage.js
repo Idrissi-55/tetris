@@ -11,9 +11,9 @@ export const useStage = (player, resetPlayer) => {
         const sweepRows = newStage =>
             newStage.reduce((acc, row) => {
                 //Check if row contains empty cell
-                if(row.findIndex(cell => cell[0] === 0) === -1) {
+                if (row.findIndex(cell => cell[0] === 0) === -1) {
                     console.log("empty row")
-                    setRowsCleared(prev => prev +1);
+                    setRowsCleared(prev => prev + 1);
                     //We drop the actual row and add a new one on the stage
                     acc.unshift(new Array(newStage[0].length).fill([0, 'clear']));
                     return acc;
@@ -27,13 +27,13 @@ export const useStage = (player, resetPlayer) => {
         const updateStage = prevStage => {
             // Clear the stage
             const newStage = prevStage.map(row => 
-                row.map(cell => (cell[1] === 'clear' ? [0, 'clear'] : cell))
+                row.map(cell => (cell[1] === 'clear' ? [0, 'clear'] : cell)),
                 );
 
             // Draw the tetromino
             player.tetromino.forEach((row, y) => {
                 row.forEach((value, x) => {
-                    if(value !== 0) {
+                    if (value !== 0) {
                         newStage[y + player.pos.y][x + player.pos.x] = [
                             value,
                             // Check if the tetromino has collided
@@ -43,17 +43,17 @@ export const useStage = (player, resetPlayer) => {
                 })
             });
             // I check if there is a collision
-            if(player.collided) {
+            if (player.collided) {
                 console.log('collision !')
                 resetPlayer();
-                return sweepRows(newStage)
+                return sweepRows(newStage);
             }
 
             return newStage;
         }
 
-        setStage(prev => updateStage(prev))
-    }, [player, resetPlayer, rowsCleared]);
+        setStage(prev => updateStage(prev));
+    }, [player, resetPlayer]);
 
-    return [stage, setStage];
+    return [stage, setStage, rowsCleared];
 }
