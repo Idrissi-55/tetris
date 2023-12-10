@@ -13,5 +13,6 @@
    * useInterval : qui remplace setInterval [Pourquoi ?](https://overreacted.io/making-setinterval-declarative-with-react-hooks)
    * useGameStatus: pour gérer le score et le niveau
 
+
 ##
 
