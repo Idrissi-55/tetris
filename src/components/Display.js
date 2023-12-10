@@ -7,5 +7,5 @@ const Display = ({ gameOver, text }) => (
         {text}
     </StyledDisplay>
 );
-
+console.log('change')
 export default Display;
